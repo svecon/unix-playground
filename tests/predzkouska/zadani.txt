@@ -1,0 +1,21 @@
+# wget http://pasky.or.cz/cmd.txt
+
+- delat pouze prikazy, ktere pribyly
+- vyparsovat prikazy pouze pro muj pocitac
+
+- logovat vsechny vykonane prikazy
+
+== prikazy
+- run CMD
+- passwd - zaloguje jmena vsech uzivatelu
+- maillog EMAIL@ADRESA.CZ
+- resetlog
+[perzistetni - po restartu]
+- set url=xxx
+- set period=xxx
+
+== priklad
+1 * run ps axu
+10 xb1 set url=http://example.com/c.txt
+20 * maillog pasky@ucw.cz
+21 * resetlog

@@ -1,0 +1,3 @@
+#getent passwd | grep "$(who -m | grep -o "^[a-z]*")"
+
+getent passwd | grep "$(who | grep -o "^[a-z]*")"

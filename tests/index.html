@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html40/strict.dtd">
+
+<html><head>
+<title>Petr Baudis: Cviceni ze zakladu UNIXu</title>
+<link rev=made href="mailto:pasky@ucw.cz">
+<link rel=stylesheet title=Default href="../vyuka.css" type="text/css" media=all>
+<style type="text/css">
+	code, pre { background-color: #21004a; padding: 2px 4px; border: 1px dotted; border-color: #314687; }
+</style>
+</head><body>
+
+<!-- uvnitr HTML zdrojaku najdete ruzne podivnosti vztahujici se k ulozce htoc -->
+
+<h1>Cviceni ze zakladu UNIXu</h1>
+
+<p>V akademickem roce 2012/2013 vedu cviceni z predmetu Uvod do UNIXu
+<a href="http://www.mff.cuni.cz/vnitro/is/sis/predmety/kod.php?kod=NSWI095">(<span style="font-size: 6pt">N</span>SWI095)</A>,
+najdete nas <strong>v laboratori SU2 kazde utery od 14:00</strong>.
+Tady najdete podminky pro zapocet, seznam domacich ukolu,
+a dle moznosti se budu snazit tvorit
+i nejake kratke zpravodajstvi ze cviceni.</p>
+
+<p>Cvicim skupiny c. 31 a 75, ovsem i studenti odjinud jsou vrele vitani!
+Pokud ke mne chcete chodit na cviceni, musite se na cviceni zapsat v SISu
+<strong>_a_</strong> zaroven mi
+<a href="mailto:pasky@ucw.cz">poslat mail</a>.
+(Evolucne stabilni strategii je psat do subjectu <code>[NSWI095]</code>.)</p>
+
+<p><strong>Cilem cviceni</strong> je seznamit Vas se zaklady praktickeho a efektivniho
+pouzivani UNIXu a jeho prikazove radky &ndash; shelloveho interpreteru.
+Radu uloh, at uz se tykaji automatizace Vasi prace ci Vaseho systemu,
+nebo treba zpracovani velkeho mnozstvi dat, ktere byste museli drive
+zdlouhave delat rucne nebo na ne psat specialni programy, po absolvovani
+cviceni zvladnete naskriptovat behem nekolika minut prostou kombinaci
+hrsti UNIXovych prikazu. Nestihneme sice procvicit uplne vsechny prikazy
+zminene na prednasce, duraz vsak polozime na to zasadni &ndash; reseni
+konkretnich praktickych uloh ze zivota.</p>
+
+
+<h2>Ziskani zapoctu</h2>
+
+<p><strong>Podminkou k ziskani zapoctu je odevzdat tri domaci ukoly
+	behem semestru a v ramci zapoctove pisemky napsat slozitejsi skript.</strong>
+Studenti, kteri si jiz se shellem tykaji, mohou po individualni dohode
+vyuzit zkratku (zapoctovy program).</p>
+
+<div class="box">
+<p>Semestr je rozdelen na tri <em>checkpointy</em> po cca ctyrech tydnech.
+Na kazdem checkpointu si vyberete (alespon) jeden z nekolika nabidnutych <strong>domacich ukolu</strong>,
+na jeho odladeni a finalni odevzdani pak budete mit 14 dni.</p>
+<p>Ukoly poslete co nejdrive, abyste do zacatku dalsiho cviceni stihli jeste proiterovat
+pripadna opravena reseni, budu-li mit vyhrady (coz se stava dost casto).
+Propasle terminy je po individualni dohode <em>vzdy mozne resit</em>,
+ovsem za cenu rostouci obtiznosti uloh.</p>
+</div>
+
+<div class="box">
+<p><strong>Zapoctova pisemka</strong> se bude programovat na poslednim cviceni
+(pokud budete planovat predtermin, dejte mi vcas vedet).
+Pisemka bude obnaset napsani (na pocitaci) nejakeho jemne netrivialniho programu
+vcetne jeho doladeni do funkcni podoby.</p>
+<p>Primarni ucel pisemky je trenink na zkousku, tedy dat Vam moznost
+si na vetsi uloze vyzkouset, co Vas ceka pri zkousce a jake mate
+sance si s tim poradit;
+skript vsak ladime a hodnotime spolecne polointeraktivni formou
+a casu je stedre i pro loudavejsi.
+Pocet opravnych pokusu neni a priori omezen.</p>
+</div>
+
+
+<h2>Domaci ukoly</h2>
+
+<p>Obecna poznamka: Ulohy nejsou dokonale formulovane,
+s takovymi se obvykle nepotkate ani v realnem zivote programatora;
+soucasti zadani je tedy aplikace Vaseho zdraveho rozumu.
+Kreativni (ale chytre) interpretace a reseni vitana.</p>
+
+<p><em>Predpokladam, ze souhlasite se zverejnenim sveho jmena
+a informaci o splnenych ukolech (a s malou pravdepodobnosti
+i svych reseni) na teto strance.
+Neni-li tomu tak, staci se o tom v mailu zminit.</em></p>
+
+<table class=progs>
+	<col width="10%">
+	<tr><td rowspan=1>19. 2.</td>
+<td><a name='t-mlrg'>mlrg</a></td><td>0</td><td>Poslete mi mail, ze ke mne budete chodit na cviceni - staci, kdyz napisete sve jmeno.
+Tahle uloha je <strong>povinna pro uplne vsechny</strong>!
+</td></tr>
+<tr><td rowspan=4>26. 3.</td>
+<td><a name='t-jpnm'>jpnm</a></td><td>1</td><td>Predstavte si, ze nase laborator je v Japonsku: soubor passwd (v labu vygenerujete
+prikazem <code>getent passwd</code>) prepiste tak, jak se casto prepisuji japonska
+jmena v anglosaskem svete - napr. "Hayao Miyazaki" se prepise na "MIYAZAKI Hayao".
+Treba radku <code>pasky:x:2089:100:Petr Baudis:/home/pasky:/bin/bash</code> byste
+tedy meli prepsat na <code>pasky:x:2089:100:BAUDIS Petr:/home/pasky:/bin/bash</code>.
+Muzete predpokladat, ze kazde jmeno se bude skladat alespon ze dvou slov.
+</td></tr>
+<tr><td><a name='t-wcfq'>wcfq</a></td><td>1</td><td>Napiste skript, ktery na standardnim vstupu dostane nejaky cesky nebo anglicky text
+se slovy oddelenymi mezerami a obsahujici interpunkcni znamenka "." a "," (idealni
+text je napriklad (pravda latinske) <a href="lorem.txt">Lorem ipsum</a>).
+Vypiste deset nejcasteji se vyskytujicich slov (hint: <code>tr(1)</code> s <code>\n</code>)
+a spoctete (celkovy ci jednotlivy) percentualni podil techto slov na celkovem poctu
+slov v souboru (zkuste si z poctu slov vygenerovat automaticky aritmeticky vyraz a <code>bc(1)</code>; procvicime
+jeste asi na pristim cviceni).
+</td></tr>
+<tr><td><a name='t-mllg'>mllg</a></td><td>1</td><td>Logovani prichozich mailu: vzdy, kdyz Vam prijde mail, ulozte na konec souboru
+<code>mail.log</code> ve Vasem domovskem adresari radku ve formatu "<code>datum subject</code>"
+(<em>subject</em> je anglicky <em>predmet</em> a v mailu ho najdete jako hlavicku
+<code>Subject</code>), a to tak, aby Vam samozrejme mail take dosel a ulozil se,
+krom toho, ze ho zpracuje skript.<br/>Tato uloha je zejmena o samostatnem hledani v ruznych materialech
+a dokumentaci a experimentovani (v labu by to melo fungovat).
+Muze se Vam hodit zjistit neco o souboru <code>~/.forward</code> (take se mu rika "dot forward")
+Na vytahnuti subjectu se vam muze hodit program <code>formail(1)</code>
+(ale pozor, neni to standardni nastroj, takze u zkousky s nim pravdepodobne neuspejete - zatim vsak nemate jine nacini).
+</td></tr>
+<tr><td><a name='t-lsav'>lsav</a></td><td>1</td><td>Spocitejte prumernou delku jmen souboru (ci adresarovych polozek; nejlepe si rozmyslete oboji)
+v aktualnim adresari. Predpokladejte, ze je adresar neprazdny.
+(Pozor na chytak, nezapomente, ze i znak konce radku je znak a jako znak se pocita,
+do jmena souboru ale jiste nepatri. ;)
+</td></tr>
+
+</table>
+
+
+<h2>Novinky ze cviceni</h2>
+
+<!--<p><q>And the earth was without form, and void; and darkness was upon the face of the deep.</q></p>-->
+
+<ol>
+	<li>Motivace a jemny uvod do systemu a prikazove radky. Editace prikazoveho radku, souborovy system, dokumentace, zakladni presmerovani a pajpy, zakladni prikazy (cd, ls, man (+ (p)info, help [GNU]), cat, echo, sort, head). mail, ssh (a PuTTY) (zminka).</li>
+	<li>Opakovani presmerovani a pajp (head, tail, wc). Jak editovat soubory (vim+vimtutor / emacs, mcedit / joe / nano, gedit / kate). Escaping (\ ) a quoting ('', "") (mail se subjectem). Vzdalene spousteni prikazu, kopirovani souboru pres ssh.</li>
+	<li>Jak vypada skript? <code>#!/bin/sh</code>, <code>chmod +x</code> a <code>./</code>. Vystup ls na terminal vs. do pipeline, rekurzivni ls a skryte soubory. Umazavani prvniho radku textoveho souboru. <a href="ulozka2.txt">SMS ulozka.</a> Prikaz wget. Docasne soubory. Expanze <code>$$</code>, <code>$RANDOM</code>, letmy uvod do promennych (<code>x=blabla</code>, <code>echo $x</code>). Aritmeticka expanze <code>$((...))</code>, prikazova substituce <code>$(...)</code> resp. <code>`...`</code>.</li>
+	<li>Pokracovani SMS ulozky (nahodny radek). Kompendium ulozek na cut, sort, diff + comm, tr.</li>
+	<li>Zaskocil Lada Laska. Idiom <code>sort | uniq -c | sort -n</code>. join.</li>
+	<li>Opakovani tr, sort + uniq. grep, prvni regularni vyrazy a spetka sedu.</li>
+	<li><em>Plan: Regularni vyrazy (zkousejte dalsi na <a href="http://tutor.fi.muni.cz/">tutor.fi.muni.cz</a>), grep a sed.</em></li>
+	<!--
+	<li>Opakovani procesu z prednasky, <code>ps axu</code>. Vice sedariny (zpracovani mailu). find, xargs.</li>
+	<li>Procesy, signaly, ps, idiom <code>awk '{print$1}'</code>. Navratove kody, podminky a cykly. Vlastni implementace seq. <code>while read</code>. Hadani cisel.</li>
+	<li><code>trap</code>. Kompendium ulozek. Zamysleni nad nahodnymi cisly. <code>cc</code>, <code>clear</code>, <code>reset</code> (IOCCC). Parsovani parametru; idiom: <pre>
+while [ -n "$1" ]; do
+	case "$1" in
+		-r) rep=1;;
+		-m) shift; max="$1";;
+		*) echo "Bad parameter: $1" &gt;&amp;2; exit 1;;
+	esac
+	shift
+done</pre>
+	</li>
+	<li><code>eval</code> a hledani bezpecnostni diry. <a href="ulozky-mix.txt">Vseobecny mix ulozek.</a></li>
+	<li>Mixovani uloh z minule.</li>
+	<li>Pisemka nanecisto - <a href="pisemka-tree.txt">sledovani adresaroveho stromu</a> <a href="pisemka-tree.sh">(priklad reseni)</a>.</li>
+	<li>Pisemka nacisto - <a href="pisemka-botnet.txt">botnet'</a>.</li>
+	-->
+	<!-- TODO subject z hlavicky -->
+	<!--
+	<li>Vseobecny <a href="ulozky10.txt">mix ulozek.</a>. Vcetne spetky awk.</li>
+	<li>Domixovavani.</li>
+	<li>Pisemka nanecisto - generovani fylogenetickych stromu (<a href="pisemka-phylo.txt">zadani</a>, <a href="pisemka-phylo.sh">reseni</a>).</li>
+	<li>Pisemka nacisto - botnet client (<a href="pisemka-botnet.txt">zadani</a>).</li>
+	-->
+<!--
+	<li>Reseni domacich uloh a diskuse nad nimi.
+		Jednoduche zpracovani DNS zonefile korenove domeny.
+		Vlastni implementace prikazu seq (v jeho trech parametrovych formach).</li>
+	<li>Pisemka nanecisto - <a href="pisemka-semf.txt">semafory pro koordinaci vypoctu</a>.</li>
+	<li>Zapoctova pisemka - <a href="pisemka-sis.txt">data ze SISu</a>.</li>
+-->
+</ol>
+
+<h2>Vysledky (01. 04. 2013)</h2>
+<p><em>(Jde pouze o datum posledni aktualizace tabulky. V privalu desitek ukolu muze trvat nekolik dni, nez se dostanu k tomu Vasemu. Nepanikarte, neozvu-li se do 3-4 dni, pripomente se, prosim.)</em></p><div style="float: right"><a href="http://xkcd.com/208/"><img src="http://imgs.xkcd.com/comics/regular_expressions.png" style="margin: 0em; border: 1em solid white;" width="400" /></a></div><p><table class=progs>
+<tr><th>Jmeno<th>Priklady<th>Bodu<th>Pisemka<th>Z
+<tr><td>Florian Badanic<td><td class=red>0<td>
+<td>
+<tr><td>Jan Buchar<td><a href='#t-wcfq'>wcfq</a>(<span>1</span>)<td class=red>1<td>
+<td>
+<tr><td>Julia Cermakova<td><td class=red>0<td>
+<td>
+<tr><td>Vojtech Cerny<td><a href='#t-lsav'>lsav</a>(<span>1</span>)<td class=red>1<td>
+<td>
+<tr><td>Katarina Durechova<td><td class=red>0<td>
+<td>
+<tr><td>Michal Hruska<td><td class=red>0<td>
+<td>
+<tr><td>Michal Husek<td><td class=red>0<td>
+<td>
+<tr><td>Jan Kluj<td><a href='#t-jpnm'>jpnm</a>(<span>1</span>)<td class=red>1<td>
+<td>
+<tr><td>Jan Kubalek<td><td class=red>0<td>
+<td>
+<tr><td>Jiri Kure<td><td class=red>0<td>
+<td>
+<tr><td>Martin Mirbauer<td><td class=red>0<td>
+<td>
+<tr><td>Lilia Nguyen<td><td class=red>0<td>
+<td>
+<tr><td>Jakub Pekarek<td><td class=red>0<td>
+<td>
+<tr><td>Lenka Pelcova<td><td class=red>0<td>
+<td>
+<tr><td>Filip Sedivy<td><td class=red>0<td>
+<td>
+<tr><td>Borek Stastny<td><td class=red>0<td>
+<td>
+<tr><td>Filip Stedronsky<td><td class=red>0<td>
+<td>
+<tr><td>Ondrej Svec<td><a href='#t-wcfq'>wcfq</a>(<span>1</span>)<td class=red>1<td>
+<td>
+<tr><td>Miroslav Tomasik<td><td class=red>0<td>
+<td>
+<tr><td>Martin Topfer<td><td class=red>0<td>
+<td>
+<tr><td>Ludmila Tydlitatova<td><td class=red>0<td>
+<td>
+<tr><td>Josef Vojacek<td><td class=red>0<td>
+<td>
+<tr><td>Tomas Volf<td><td class=red>0<td>
+<td>
+<tr><td>Frantisek Wolf<td><a href='#t-jpnm'>jpnm</a>(<span>1</span>)<td class=red>1<td>
+<td>
+<tr><td>Andrei Yakubouski<td><td class=red>0<td>
+<td>
+<tr><td>Martin Zikmund<td><td class=red>0<td>
+<td>
+<tr><td>--- Pan Po ---<td><td class=red>0<td>
+<td>
+</table>
+
+
+
+<h2 dir="chachaaa>">Dalsi zdroje</h2>
+<ul>
+	<li><a href="../">Cviceni z minulych let</a></li>
+	<li><a href="http://www.ms.mff.cuni.cz/~forst/vyuka.html">Stranka prednasky</a> - vcetne slajdu v PDF</li>
+	<li><a href="http://wiki.matfyz.cz/index.php?title=SWI095">Wiki predmetu</a> - vcetne linku na spoustu inspirativnich materialu kolegu cvicicich</li>
+	<li><a href="http://www.martinvseticka.eu/index.php?sekce=browse&page=79">Martin Vseticka</a> - zkouskove ulozky, zapisky z mych cviceni ;-) a spousta dalsiho</li>
+	<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/">POSIX.1-2008</a> - specifikace veci, ktere byste meli najit na kazdem rozumnem UNIXovem systemu (vizte zejmena svazek <em>Shell &amp; Utilities</em>). Referencni prirucka; ne zcela lehce stravitelne, ale naucit se pracovat se specifikacemi se Vam bude hodit, myslite-li to opravdu vazne s praktickym programovanim.</li>
+	<li><a href="http://www.in-ulm.de/~mascheck/various/">Vse, co jste nikdy nechteli vedet o shellu</a> (ruzne UNIXove starozitnosti a obskurni detaily v chovani; pokud Vas neco takoveho zajima, jste divni) <small>(mne to docela zajimave prislo)</small></li>
+</ul>
+
+<h2 class="noworries">Pomoc!</h2>
+<p>Potrebujete-li s necim poradit, udelate nejlepe,
+kdyz mi <a href="mailto:pasky@ucw.cz">napisete mail</a>.
+Konkretni dotazy muzeme vyresit rovnou po mailu.</p>
+
+<p>Pokud budete mit nejake obecnejsi nejasnosti, nezoufejte,
+domluvime se a nekdy se potkame.
+Idealni cas na konzultaci je v okoli cviceni,
+ale muzeme se domluvit i na jindy.</p>
+
+<h3>TOC</h3>
+
+@TOC@
+
+
+<HR>
+
+<ADDRESS>Edituje
+<A HREF="/~pasky/">Petr Baudis</A>. No counters, no frames, no syntax errors.
+</ADDRESS>
+
+
+</body></html>
